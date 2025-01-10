@@ -39,6 +39,8 @@ header {
 nav ul {
   display: flex;
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
@@ -105,6 +107,7 @@ select {
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .error {
@@ -121,6 +124,7 @@ select {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 1rem;
 }
 
 .submit-button:hover {
@@ -129,6 +133,10 @@ select {
 
 /* Confirmation Page Styles */
 .confirmation {
+  text-align: center;
+}
+
+.reservation-details  max-.confirmation {
   text-align: center;
 }
 
@@ -169,6 +177,12 @@ select {
 
   .booking-form {
     padding: 1rem;
+  }
+
+  input,
+  select,
+  .submit-button {
+    font-size: 16px; /* Prevents zoom on mobile devices */
   }
 }
 

@@ -1,22 +1,7 @@
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const initialState = {
-  availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'UPDATE_TIMES':
-      // For now, we'll just return the same available times
-      return state;
-    default:
-      return state;
-  }
-}
-
-function BookingForm() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+function BookingForm({ availableTimes, updateTimes }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,7 +17,7 @@ function BookingForm() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     if (name === 'date') {
-      dispatch({ type: 'UPDATE_TIMES', payload: value });
+      updateTimes(value);
     }
   };
 
@@ -124,7 +109,7 @@ function BookingForm() {
             required
           >
             <option value="">Select a time</option>
-            {state.availableTimes.map(time => (
+            {availableTimes.map(time => (
               <option key={time} value={time}>{time}</option>
             ))}
           </select>
